@@ -1,0 +1,8 @@
+interface:
+  display_name: "SwiftUI Design Direction"
+  short_description: "Premium iOS visual direction"
+  default_prompt: "Use $swiftui-design-direction to design a distinctive iPhone SwiftUI screen."
+  brand_color: "#0F766E"
+
+policy:
+  allow_implicit_invocation: true

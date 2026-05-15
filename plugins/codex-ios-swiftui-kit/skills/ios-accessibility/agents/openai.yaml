@@ -1,0 +1,8 @@
+interface:
+  display_name: "iOS Accessibility"
+  short_description: "VoiceOver, Dynamic Type, contrast"
+  default_prompt: "Use $ios-accessibility to audit a SwiftUI screen for accessibility."
+  brand_color: "#059669"
+
+policy:
+  allow_implicit_invocation: true

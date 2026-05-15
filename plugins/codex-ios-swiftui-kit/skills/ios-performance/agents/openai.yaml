@@ -1,0 +1,8 @@
+interface:
+  display_name: "iOS Performance"
+  short_description: "SwiftUI runtime and Instruments"
+  default_prompt: "Use $ios-performance to optimize a SwiftUI view for runtime cost."
+  brand_color: "#F97316"
+
+policy:
+  allow_implicit_invocation: true

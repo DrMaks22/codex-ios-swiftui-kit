@@ -1,0 +1,8 @@
+interface:
+  display_name: "SwiftUI Expert Review"
+  short_description: "Review and refine SwiftUI code"
+  default_prompt: "Use $swiftui-expert-review to review SwiftUI code for correctness and polish."
+  brand_color: "#111827"
+
+policy:
+  allow_implicit_invocation: true

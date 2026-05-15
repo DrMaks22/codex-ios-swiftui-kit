@@ -1,0 +1,8 @@
+interface:
+  display_name: "iOS SwiftUI"
+  short_description: "SwiftUI layout and composition"
+  default_prompt: "Use $ios-swiftui to implement a polished iPhone UI in SwiftUI."
+  brand_color: "#2563EB"
+
+policy:
+  allow_implicit_invocation: true

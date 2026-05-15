@@ -1,0 +1,28 @@
+{
+  "name": "codex-ios-swiftui-kit",
+  "version": "0.1.0",
+  "description": "Codex-native iOS SwiftUI UX/UI bundle for distinctive design, implementation, accessibility, performance, and review",
+  "author": {
+    "name": "lma"
+  },
+  "license": "MIT",
+  "keywords": ["swiftui", "ios", "ux", "ui", "accessibility", "performance", "codex"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Codex iOS SwiftUI Kit",
+    "shortDescription": "Design, build, and review premium iOS SwiftUI UI",
+    "longDescription": "A Codex plugin bundle for iPhone-first SwiftUI design direction, implementation guidance, accessibility, performance, architecture, and expert review.",
+    "developerName": "Codex",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "Design a premium iPhone SwiftUI screen with clear hierarchy and accessible spacing.",
+      "Implement this design in SwiftUI with modern navigation and adaptive layout.",
+      "Review my SwiftUI view for state, accessibility, and performance issues."
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg"
+  }
+}

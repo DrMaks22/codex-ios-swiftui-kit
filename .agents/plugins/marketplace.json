@@ -1,0 +1,20 @@
+{
+  "name": "codex-workspace",
+  "interface": {
+    "displayName": "Codex Workspace"
+  },
+  "plugins": [
+    {
+      "name": "codex-ios-swiftui-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-ios-swiftui-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

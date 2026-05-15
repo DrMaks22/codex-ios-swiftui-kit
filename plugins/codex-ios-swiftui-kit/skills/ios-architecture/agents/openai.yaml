@@ -1,0 +1,8 @@
+interface:
+  display_name: "iOS Architecture"
+  short_description: "State ownership and module boundaries"
+  default_prompt: "Use $ios-architecture to structure a SwiftUI feature cleanly."
+  brand_color: "#7C3AED"
+
+policy:
+  allow_implicit_invocation: true
