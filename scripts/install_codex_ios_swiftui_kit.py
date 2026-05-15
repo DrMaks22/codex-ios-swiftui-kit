@@ -8,6 +8,7 @@ import json
 import shutil
 import sys
 import tempfile
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -23,12 +24,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_PLUGIN_ROOT = REPO_ROOT / "plugins" / PLUGIN_NAME
 DEFAULT_TARGET_ROOT = Path.home() / "plugins"
 DEFAULT_MARKETPLACE_PATH = Path.home() / ".agents" / "plugins" / "marketplace.json"
+VALID_SCOPES = {"global", "local"}
 
 
 @dataclass(frozen=True)
 class InstallConfig:
-    target_root: Path
-    marketplace_path: Path
+    scope: str
+    workspace_root: Path | None
+    target_root: Path | None
+    marketplace_path: Path | None
     force: bool
     link: bool
     dry_run: bool
@@ -70,6 +74,47 @@ def remove_path(path: Path) -> None:
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
+
+
+def detect_workspace_root() -> Path:
+    result = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode == 0:
+        candidate = Path(result.stdout.strip())
+        if candidate:
+            return candidate.expanduser()
+    return Path.cwd().expanduser()
+
+
+def resolve_install_paths(config: InstallConfig) -> tuple[Path, Path]:
+    if config.scope == "global":
+        target_root = DEFAULT_TARGET_ROOT
+        marketplace_path = DEFAULT_MARKETPLACE_PATH
+    elif config.scope == "local":
+        workspace_root = config.workspace_root or detect_workspace_root()
+        workspace_root = workspace_root.expanduser()
+        if workspace_root.exists() and not workspace_root.is_dir():
+            raise ValueError(f"Workspace root must be a directory: {workspace_root}")
+        if workspace_root.resolve() == REPO_ROOT.resolve():
+            raise ValueError(
+                "Local scope cannot target the source repository itself. "
+                "Pass --workspace-root /path/to/the workspace you want Codex to install into."
+            )
+        target_root = workspace_root / "plugins"
+        marketplace_path = workspace_root / ".agents" / "plugins" / "marketplace.json"
+    else:
+        raise ValueError(f"Unsupported scope: {config.scope}")
+
+    if config.target_root is not None:
+        target_root = config.target_root.expanduser()
+    if config.marketplace_path is not None:
+        marketplace_path = config.marketplace_path.expanduser()
+
+    return target_root, marketplace_path
 
 
 def validate_source_bundle(source_root: Path) -> None:
@@ -226,14 +271,25 @@ def parse_args() -> InstallConfig:
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
+        "--scope",
+        choices=sorted(VALID_SCOPES),
+        default="global",
+        help="Install into the global Codex profile or into a specific workspace.",
+    )
+    parser.add_argument(
+        "--workspace-root",
+        default=None,
+        help="Target workspace root for local installs.",
+    )
+    parser.add_argument(
         "--target-root",
-        default=str(DEFAULT_TARGET_ROOT),
-        help="Parent directory for the installed plugin bundle.",
+        default=None,
+        help="Override the parent directory for the installed plugin bundle.",
     )
     parser.add_argument(
         "--marketplace-path",
-        default=str(DEFAULT_MARKETPLACE_PATH),
-        help="Path to the Codex marketplace manifest that should be updated.",
+        default=None,
+        help="Override the Codex marketplace manifest path that should be updated.",
     )
     parser.add_argument(
         "--force",
@@ -262,8 +318,10 @@ def parse_args() -> InstallConfig:
     )
     args = parser.parse_args()
     return InstallConfig(
-        target_root=Path(args.target_root).expanduser(),
-        marketplace_path=Path(args.marketplace_path).expanduser(),
+        scope=args.scope,
+        workspace_root=Path(args.workspace_root).expanduser() if args.workspace_root else None,
+        target_root=Path(args.target_root).expanduser() if args.target_root else None,
+        marketplace_path=Path(args.marketplace_path).expanduser() if args.marketplace_path else None,
         force=args.force,
         link=args.link,
         dry_run=args.dry_run,
@@ -277,8 +335,9 @@ def main() -> int:
 
     try:
         validate_source_bundle(SOURCE_PLUGIN_ROOT)
+        target_root, marketplace_path = resolve_install_paths(config)
 
-        target_plugin_root = config.target_root / PLUGIN_NAME
+        target_plugin_root = target_root / PLUGIN_NAME
         print(
             sync_tree(
                 SOURCE_PLUGIN_ROOT,
@@ -290,11 +349,11 @@ def main() -> int:
         )
 
         if not config.skip_marketplace:
-            changed = merge_marketplace_entry(config.marketplace_path, config.dry_run)
+            changed = merge_marketplace_entry(marketplace_path, config.dry_run)
             if config.dry_run:
-                print(f"Would update marketplace at {config.marketplace_path}")
+                print(f"Would update marketplace at {marketplace_path}")
             elif changed:
-                print(f"Updated marketplace at {config.marketplace_path}")
+                print(f"Updated marketplace at {marketplace_path}")
             else:
                 print(f"Marketplace already contained {PLUGIN_NAME}")
 
