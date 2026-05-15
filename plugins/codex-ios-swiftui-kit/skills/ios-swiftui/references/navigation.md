@@ -10,9 +10,39 @@ Navigation should be explicit, predictable, and easy to review.
 - Prefer one navigation style per feature unless there is a strong reason to mix them.
 - Make deep links and selection state visible in the data model when needed.
 
+### Route enum example
+
+```swift
+enum HermesRoute: Hashable {
+    case inbox
+    case conversation(String)
+    case settings
+}
+```
+
+### Sheet item example
+
+```swift
+enum ActiveSheet: Identifiable {
+    case composer
+    case filter
+
+    var id: String {
+        switch self {
+        case .composer: "composer"
+        case .filter: "filter"
+        }
+    }
+}
+```
+
 ## Common mistakes
 
 - hiding navigation inside helper methods
 - using multiple overlapping presentation mechanisms
 - making the back path unclear
 - coupling screen identity too tightly to transient view state
+
+### Rule
+
+- avoid overlapping navigation systems in one feature unless migration requires a temporary bridge

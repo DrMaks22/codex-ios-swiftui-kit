@@ -1,41 +1,58 @@
-# Layout Patterns
+# SwiftUI iPhone Layout Patterns
 
-Choose the pattern that matches the user job, then simplify it for iPhone.
+Choose one pattern first, then simplify to compact-width structure.
 
-## Common patterns
+## Conversational assistant
+- Use when:
+  - chat, operator, or request/response work
+- Layout grammar:
+  - anchored composer, reverse chronological stream, context-aware affordance bar
+- Avoid:
+  - fixed multi-column history, heavy card borders, status noise above message flow
 
-### Chat or composer first
+## Calm productivity dashboard
+- Use when:
+  - daily status, key metrics, quick triage
+- Layout grammar:
+  - hero insight first, compact list or stack, two-level actions
+- Avoid:
+  - dense grids, inconsistent spacing, oversized secondary cards
 
-- Best for messaging, operator workflows, and rapid back-and-forth tasks
-- Keep the composer anchored and the most recent content visible
-- Separate the input area from the content stream with clear spacing
+## Dense pro utility
+- Use when:
+  - task-heavy workflows, tables, filtered lists, quick actions
+- Layout grammar:
+  - strong primary section, sticky controls, compact scannable rows
+- Avoid:
+  - decorative depth, weak typography contrast, ambiguous row hierarchy
 
-### Summary dashboard
+## Editorial detail
+- Use when:
+  - narrative content, review, deep read
+- Layout grammar:
+  - title block, structured metadata, body typography scale, minimal control intrusion
+- Avoid:
+  - competing gradients, oversized action density, tiny caption-only guidance
 
-- Best for a high-level status screen
-- Put one primary metric or state first
-- Follow with a short list of actionable items, not a crowded grid
+## Control surface
+- Use when:
+  - configuration, permissions, settings, toggles
+- Layout grammar:
+  - labeled sections, direct controls, inline explanatory subtitle
+- Avoid:
+  - mixed control density in one section, unlabeled switches, vague labels
 
-### Detail sheet or card stack
+## Object detail / action sheet
+- Use when:
+  - deep object drill-down with secondary actions
+- Layout grammar:
+  - object header, key info stack, one primary action row, optional confirmatory sheet
+- Avoid:
+  - burying critical action in menu, stacked modals, excessive nested actions
 
-- Best for a focused object view
-- Use one strong header, one content column, and one primary action
-- Keep secondary actions subordinate
+## iPhone guardrails
 
-### Settings or controls list
-
-- Best for configuration and preferences
-- Group related controls into clear sections
-- Use labels that explain the effect, not just the control type
-
-### Split emphasis
-
-- Best when a screen has one primary task and one supporting context area
-- Make the primary task visually larger and the context lighter
-
-## iPhone rules
-
-- Prefer vertical flow over dense multi-column layouts.
+- Prefer vertical rhythm over horizontal noise.
 - Keep touch targets generous.
-- Avoid nested containers that create visual noise.
-- Let spacing communicate grouping before borders do.
+- Parent owns arrangement; leafs own local detail.
+- If text density rises, convert decoration into whitespace and structure.

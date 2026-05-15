@@ -1,7 +1,7 @@
 interface:
-  display_name: "iOS Performance"
-  short_description: "SwiftUI runtime and Instruments"
-  default_prompt: "Use $ios-performance to optimize a SwiftUI view for runtime cost."
+  display_name: "iOS SwiftUI Performance Audit"
+  short_description: "Audit SwiftUI runtime cost and heavy render paths"
+  default_prompt: "Use the Codex iOS SwiftUI Kit to review this SwiftUI view for runtime performance and evidence-based fixes."
   brand_color: "#F97316"
 
 policy:

@@ -1,17 +1,24 @@
 # Module Boundaries
 
-Use boundaries to protect the parts of the feature that should not know about each other.
+Boundary intent: improve comprehension and reduce risk.
 
-## Guidance
+## Patterns
 
-- group code by feature, not by random technical layer alone
-- keep view-specific logic close to the view when it is not shared
-- split out shared behavior only when it is truly shared
-- use boundaries to reduce coupling and simplify review
+- Keep local:
+  - screen-specific helpers used only inside one screen.
+  - behavior tied to one flow and one owner.
+- Feature boundary:
+  - state and actions shared by several screens in same feature.
+  - cohesive unit tests and shared preview fixtures.
+- Shared module:
+  - truly reusable behavior with multiple features.
+  - behavior used in two+ features and stable over time.
+- Avoid extracting yet:
+  - premature abstraction for one-off screens
+  - utilities with no observed reuse
 
-## Common signs a boundary is wrong
+## Signs boundary is wrong
 
-- too many imports for a simple screen
-- code that changes for unrelated reasons
-- a feature that is impossible to understand without reading the whole app
-- modules that expose more than the feature needs
+- frequent imports from unrelated modules
+- every change requires touching many layers
+- module has no clear contract and no stable tests

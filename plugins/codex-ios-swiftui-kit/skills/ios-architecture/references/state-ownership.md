@@ -4,14 +4,24 @@ State should have one owner and one clear mutation path.
 
 ## Guidance
 
-- local UI state stays in the smallest possible view
-- shared feature state belongs higher only when multiple children need it
-- derived values should be computed, not stored twice
-- presentation state should be explicit and easy to trace
+Feature-level decisions should stay in architecture, not in each view.
 
-## Questions to ask
+- Start with `../../../references/swiftui-state-ownership.md`.
+- local UI state stays in the smallest possible view.
+- shared feature state belongs higher only when multiple children need it.
+- derived values should be computed, not stored twice.
+- presentation state should be explicit and easy to trace.
 
-- Who owns the truth?
-- Who is allowed to mutate it?
-- Which views should observe it?
-- What breaks if this moves one level up or down?
+## Responsibility questions
+
+- Who owns the truth for each mutable value?
+- Which feature owns write access?
+- Which screens only observe it?
+- What breaks when ownership moves up or down?
+
+## Decision notes
+
+- local = local UI only
+- feature = multi-screen shared behavior
+- shared = app-level policy/state
+- external/service-backed = cached and networked values

@@ -1,10 +1,18 @@
-# State Ownership Review
+# State Ownership Review (Review only)
 
-Look for state that is stored in the wrong place or copied too widely.
+Focus on review red flags, not teaching.
 
-## Red flags
+- same mutable value duplicated across views
+- local UI state hoisted without a reason
+- hidden presentation flow state
+- unstable owner for shared mutable values
 
-- the same truth exists in multiple layers
-- local UI state is hoisted without a reason
-- bindings are passed deeper than needed
-- presentation state is hidden behind side effects
+## Severity mapping
+
+- High: duplicated source of truth with user-visible drift
+- Medium: over-specified state shape slowing maintenance
+- Low: naming and organization risks
+
+## Reference
+
+- shared contract: `../../../references/swiftui-state-ownership.md`

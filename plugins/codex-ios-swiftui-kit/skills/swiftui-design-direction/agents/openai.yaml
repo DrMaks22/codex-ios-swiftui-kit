@@ -1,7 +1,7 @@
 interface:
-  display_name: "SwiftUI Design Direction"
-  short_description: "Premium iOS visual direction"
-  default_prompt: "Use $swiftui-design-direction to design a distinctive iPhone SwiftUI screen."
+  display_name: "iPhone SwiftUI Design Direction"
+  short_description: "Generate iPhone visual lane, tokens, and layout rhythm"
+  default_prompt: "Use the Codex iOS SwiftUI Kit to create a premium iPhone SwiftUI design direction for this screen."
   brand_color: "#0F766E"
 
 policy:

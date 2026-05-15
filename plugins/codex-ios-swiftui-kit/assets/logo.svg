@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-label="Codex iOS SwiftUI Kit logo">
-  <rect width="960" height="320" rx="48" fill="#0B1220"/>
+  <rect width="960" height="320" rx="44" fill="#0B1220"/>
   <g transform="translate(56 40)">
-    <rect width="240" height="240" rx="48" fill="#0F766E"/>
-    <rect x="48" y="60" width="144" height="120" rx="28" fill="none" stroke="#FFFFFF" stroke-width="14"/>
-    <path d="M88 118h64M88 146h44" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round"/>
-    <circle cx="86" cy="94" r="9" fill="#FFFFFF"/>
+    <rect width="240" height="240" rx="42" fill="#0F766E"/>
+    <rect x="58" y="66" width="124" height="108" rx="22" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+    <line x1="82" y1="102" x2="158" y2="102" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <line x1="82" y1="128" x2="152" y2="128" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <line x1="82" y1="154" x2="142" y2="154" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <line x1="82" y1="180" x2="158" y2="180" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
   </g>
-  <text x="344" y="140" fill="#F8FAFC" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="48" font-weight="700">Codex iOS SwiftUI Kit</text>
-  <text x="344" y="196" fill="#94A3B8" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="24" font-weight="500">Design, implement, and review premium iPhone SwiftUI</text>
+  <text x="344" y="130" fill="#F8FAFC" font-size="48" font-weight="700" font-family="system-ui, -apple-system, sans-serif">Codex iOS SwiftUI Kit</text>
+  <text x="344" y="190" fill="#94A3B8" font-size="22" font-weight="500" font-family="system-ui, -apple-system, sans-serif">Premium iPhone SwiftUI workflow for design, build, and review</text>
 </svg>

@@ -1,7 +1,7 @@
 interface:
-  display_name: "iOS Accessibility"
-  short_description: "VoiceOver, Dynamic Type, contrast"
-  default_prompt: "Use $ios-accessibility to audit a SwiftUI screen for accessibility."
+  display_name: "iOS SwiftUI Accessibility Audit"
+  short_description: "Audit VoiceOver, Dynamic Type, contrast, motion, and touch targets"
+  default_prompt: "Use the Codex iOS SwiftUI Kit to audit this SwiftUI screen for accessibility quality."
   brand_color: "#059669"
 
 policy:

@@ -1,29 +1,41 @@
 # Typography and Color
 
-This skill should treat typography and color as the main system, not decoration.
+Treat typography and color as semantic systems.
 
-## Typography
+## Token naming examples
 
-- Use a clear hierarchy: title, section label, body, metadata, action text.
-- Reserve the largest type for the user's current task, not the app name.
-- Keep labels short and predictable.
-- Avoid using style changes to solve structure problems.
+- `font-size/title`, `font-size/body`, `font-weight/primary`, `line-height/relaxed`
+- `color/foregroundPrimary`, `color/foregroundSecondary`, `color/surface`, `color/neutralDivider`
+- `color/accent`, `color/success`, `color/warning`, `color/error`
+- `radius/std`, `spacing/screenSide`, `spacing/sectionGap`, `motion/standard`
 
-## Color
+## Semantic roles
 
-- Pick one semantic accent color and keep it consistent.
-- Use neutral surfaces for most of the UI.
-- Use color to signal priority, state, and feedback.
-- Check contrast in both light and dark themes.
+- `foregroundPrimary` for main task and title
+- `foregroundSecondary` for metadata and helper text
+- `surface` for containers
+- `surfaceElevated` for subtle elevation states
+- `destructive`, `success`, `warning` for state and feedback
+- `actionPrimary` for the main button
 
-## Token guidance
+## SwiftUI mapping examples
 
-- Define a small set of tokens rather than ad hoc colors.
-- Name tokens by role, not by appearance.
-- Keep success, warning, destructive, and neutral states distinct.
+- Font:
+  - `Text(title).font(.system(.title3, weight: .semibold))`
+  - `Text(body).font(.body)`
+- Color:
+  - `foregroundStyle(.primary)` mapped from `foregroundPrimary`
+  - `foregroundStyle(Color.secondary)` mapped from `foregroundSecondary`
+  - `background(Material.regularMaterial)` only when readability stays stable
+- Spacing:
+  - `padding(.horizontal, spacing.screenSide)`
+  - `spacing(sectionGap)` in stacks
+- Radius and surfaces:
+  - `RoundedRectangle(cornerRadius: radius.std)`
 
-## Final check
+## Practical checks
 
-- Does type carry the hierarchy?
-- Does color support meaning instead of fighting it?
-- Would the screen still be understandable in grayscale?
+- One hierarchy by type size and weight, not by color alone.
+- One neutral palette for most surfaces.
+- Color is secondary to structure, not the structure itself.
+- Screen should remain understandable in grayscale.

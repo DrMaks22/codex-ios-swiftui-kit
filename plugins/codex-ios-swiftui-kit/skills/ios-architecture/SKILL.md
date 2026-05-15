@@ -1,49 +1,73 @@
 ---
 name: ios-architecture
-description: Use when a SwiftUI feature needs clearer state ownership, dependency injection, feature boundaries, or module-level structure.
+description: Use for SwiftUI feature architecture: state ownership, dependency injection, boundaries, and test seams before or after implementation.
 ---
 
-# iOS Architecture
+# iOS SwiftUI Feature Architecture
 
-## Overview
-
-This skill keeps a SwiftUI feature from becoming a pile of shared state and accidental dependencies. It is for ownership, boundaries, and practical modularity.
+Use this skill for feature-level architecture decisions, not as a generic architecture doctrine.
 
 ## Use this skill when
 
-- a feature spans several views or services
-- state ownership is unclear
-- a screen feels hard to test or hard to change
-- you need to decide whether a boundary belongs in the feature, a view model, or a shared layer
+- feature spans multiple screens/services/shared state
+- state ownership is duplicated or unclear
+- boundaries, DI, or testability are blocking progress
+- implementation already needs refactor before reliable review
+
+## Do not use this skill when
+
+- request is only visual direction
+- request is only straightforward single-view implementation
+
+## Codex behavior
+
+- Explicitly mark pass type: pre-implementation or refactor/audit.
+- Recommend architecture only at feature granularity unless there is evidence for extraction.
+- Reference `../../../references/swiftui-state-ownership.md` as source of truth for state placement.
 
 ## Workflow
 
-1. Map the responsibilities in the feature.
-2. Identify the one owner for each piece of mutable state.
-3. Decide which dependencies are local and which should be injected.
-4. Draw the smallest useful feature boundary.
-5. Remove abstractions that do not earn their keep.
+1. Map feature responsibilities and dependencies.
+2. Assign one owner per mutable state.
+3. Define feature entry point and DI injection model.
+4. Confirm shared boundaries and anti-abstraction candidates.
+5. Add test and preview seams.
+6. Return compact handoff contract to implementation.
 
-## What to output
+## Required output
 
-Return:
-
-- ownership map for the feature state
-- boundary recommendations
-- dependency injection points
-- any over-abstraction or coupling risks
+## Responsibility Map
+| Responsibility | Owner | Notes |
+|---|---|---|
+## State Ownership
+| State | Owner | Mutators | Readers | Lifetime |
+|---|---|---|---|---|
+## Dependency Map
+| Dependency | Injected At | Used By | Reason |
+|---|---|---|---|
+## Boundary Decision
+- Keep inside feature:
+- Extract to shared:
+- Do not abstract yet:
+## Test Seams
+- Unit-testable logic:
+- Preview/sample data:
+- Integration risks:
+## Handoff
+- Implementation constraints:
+- Risks to review later:
 
 ## Rules
 
-- One piece of mutable state should have one clear owner.
-- Keep dependencies as local as possible.
-- Inject only what the feature actually needs.
-- Do not create layers that only mirror existing UIKit or service structures.
-- Split modules when the boundaries improve comprehension or testing.
-- Prefer a smaller, explicit architecture over a clever but hidden one.
+- Do not mandate Clean Architecture, MVVM, or TCA.
+- One owner per mutable state is mandatory.
+- Inject at feature boundary first, not globally.
+- Avoid modules with no measurable comprehension benefit.
+- Prefer one clear architecture pass over repeated rewrites.
 
 ## References
 
 - [`state-ownership.md`](references/state-ownership.md)
 - [`module-boundaries.md`](references/module-boundaries.md)
 - [`dependency-injection.md`](references/dependency-injection.md)
+- [`feature-boundaries.md`](references/feature-boundaries.md)

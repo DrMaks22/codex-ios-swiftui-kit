@@ -2,17 +2,41 @@
 
 Dynamic Type should be treated as a layout constraint, not a nice-to-have.
 
-## Guidance
+## Layout techniques
 
-- test with large content sizes early
-- prefer flexible layouts over fixed heights
-- let text wrap when that is the least bad option
-- avoid locking important copy into tiny containers
-- keep buttons and tappable rows large enough when text scales up
+- Avoid fixed heights on containers with text.
+- Use flexible stacks and `lineLimit(nil)` for meaningful copy.
+- Prefer `minimumScaleFactor` only as a last option.
+- Test with increased content sizes and long strings.
+- Use `layoutPriority` to protect primary actions.
+
+## Risky patterns
+
+- Fixed width/height text containers.
+- `lineLimit(1)` on critical labels.
+- `frame(height:)` where content can grow.
+- Icon-only buttons without accessible labels at large sizes.
+
+## Common examples
+
+```swift
+Text(title)
+  .lineLimit(1) // risk if title can grow
+
+Text(title)
+  .lineLimit(nil) // safer for scaling text
+```
+
+```swift
+HStack(spacing: 8) {
+  Text("Status")
+  Text(status).font(.subheadline)
+}
+.fixedSize(horizontal: false, vertical: true)
+```
 
 ## Common mistakes
 
 - clipping text with fixed frames
-- relying on one-line labels for critical information
 - shrinking text to force it to fit
 - making large text break the primary action path

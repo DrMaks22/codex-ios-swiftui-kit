@@ -1,24 +1,41 @@
 # SwiftUI Layout
 
-Use the smallest layout structure that can express the screen clearly.
+Start from a minimal view tree and keep hierarchy obvious.
 
-## Guidance
+## Parent/child contract
 
-- Prefer `VStack`, `HStack`, `ZStack`, `ScrollView`, `List`, and `Grid` before custom layout code.
-- Keep spacing intentional and consistent.
-- Use containers to group related content and preserve hierarchy.
-- Let the parent own the large-scale arrangement and the child own local details.
-- Respect safe area, compact width, and long localized strings.
+- Parent owns broad arrangement.
+- Child owns local detail.
+- A single parent should declare section order and cross-section spacing.
+- Avoid building visual intent with ad-hoc frame hacks.
 
-## Common mistakes
+## Compact width and previewability
 
-- nesting too many container views
-- using frame tweaks to compensate for missing hierarchy
-- building a layout that only works at one size
-- letting every card, section, and row look equally important
+- Prefer vertical stacks and single column for compact width.
+- Never assume landscape or regular size at first draft.
+- Ensure preview uses realistic strings and dynamic type scale.
+
+## View-tree thinking
+
+- Container stack
+  - section block
+    - row/block
+    - control
+    - secondary info
+
+If this hierarchy needs manual `frame` alignment at each level, it is likely the wrong tree.
+
+## Tiny example
+
+1. `NavigationStack`
+2. `ScrollView`
+3. `VStack(spacing: 16)`
+4. `HeaderView`, `PrimaryList`, `ComposerBar`
+5. `FooterAction`
 
 ## Good output
 
-- one-sentence layout summary
+- concise layout summary
 - main containers in order
-- notes on spacing, alignment, and adaptive behavior
+- spacing and alignment decisions
+- adaptive behavior for compact width and long text

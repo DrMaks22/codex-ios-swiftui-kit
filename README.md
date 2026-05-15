@@ -1,62 +1,50 @@
 # Codex iOS SwiftUI Kit
 
-Codex-native plugin bundle for premium iOS SwiftUI UX/UI work.
+A Codex-native workflow bundle for iPhone-first SwiftUI UX/UI work.
 
-It packages:
+## What this plugin is
 
-- `swiftui-design-direction` for visual direction and design tokens
-- `ios-swiftui` for layout, navigation, state, and animation implementation
-- `ios-accessibility` for VoiceOver, Dynamic Type, contrast, and motion
-- `ios-performance` for runtime and Instruments-minded optimization
-- `ios-architecture` for state ownership and module boundaries
-- `swiftui-expert-review` for final SwiftUI quality review
+This plugin turns SwiftUI UI work into a staged system:
+
+- `swiftui-design-direction` creates visual direction and semantic tokens.
+- `ios-architecture` defines feature boundaries and state ownership before or after implementation.
+- `ios-swiftui` implements views, navigation, and interaction in SwiftUI.
+- `ios-accessibility` runs an accessibility pass for production UI.
+- `ios-performance` runs runtime checks with evidence.
+- `swiftui-expert-review` runs final quality review with severity-ranked findings.
+
+## What this plugin is not
+
+- A simulator or build automation plugin.
+- An automatic converter from screenshots.
+- A replacement for design tools.
+- An iOS project template.
+
+The plugin does not require Figma, and install scripts are intentionally excluded from runtime usage.
 
 ## Install into Codex
 
-From this repository root:
-
-```bash
-python3 scripts/install_codex_ios_swiftui_kit.py
-```
-
-By default, the installer:
-
-- installs globally into `~/plugins/codex-ios-swiftui-kit`
-- updates `~/.agents/plugins/marketplace.json`
-- validates the installed plugin structure
-
-## Codex Self-Install
-
-If you are using Codex, you can ask it to install this plugin directly from this README.
-Use the command that matches where you want the plugin available.
-
-Global install:
+From repository root:
 
 ```bash
 python3 scripts/install_codex_ios_swiftui_kit.py --scope global
 ```
 
-Local install into a specific workspace:
+Global install does:
 
-```bash
-python3 scripts/install_codex_ios_swiftui_kit.py --scope local --workspace-root /path/to/your/workspace
-```
+- copies the bundle to `~/plugins/codex-ios-swiftui-kit`
+- merges the plugin entry into `~/.agents/plugins/marketplace.json`
+- validates the installed plugin structure
 
-If you omit `--workspace-root`, the installer uses the current git top-level directory, or the current directory when no git repo is present.
-
-Suggested prompt for Codex:
-
-```text
-Install the Codex iOS SwiftUI Kit for me.
-Use global scope if I want it in my personal Codex profile.
-Use local scope if I want it in a specific workspace.
-When using local scope, install into the workspace root I provide and update that workspace's marketplace.
-```
-
-## Useful options
+To install into a workspace:
 
 ```bash
 python3 scripts/install_codex_ios_swiftui_kit.py --scope local --workspace-root /path/to/workspace
+```
+
+Useful options:
+
+```bash
 python3 scripts/install_codex_ios_swiftui_kit.py --dry-run
 python3 scripts/install_codex_ios_swiftui_kit.py --force
 python3 scripts/install_codex_ios_swiftui_kit.py --link
@@ -64,15 +52,71 @@ python3 scripts/install_codex_ios_swiftui_kit.py --target-root /custom/plugins
 python3 scripts/install_codex_ios_swiftui_kit.py --marketplace-path /custom/.agents/plugins/marketplace.json
 ```
 
-## What the installer changes
+## When to use which skill
 
-- installs the plugin bundle into the Codex-local plugin directory
-- merges the plugin entry into the local marketplace without removing existing plugins
-- keeps the plugin layout aligned with Codex plugin creator conventions
-- supports both global and workspace-local installs
+- Start with `swiftui-design-direction` for new UX, unclear layouts, visual tone, or anti-slop guidance.
+- Run `ios-architecture` before implementation for multi-screen features, shared state, or service-backed flows.
+- Run `ios-swiftui` when implementation details are known and you need SwiftUI code.
+- Run `ios-accessibility` for every production UI before shipping.
+- Run `ios-performance` for scroll-heavy, media-heavy, animation-heavy, launch, or hitches workflows.
+- Finish with `swiftui-expert-review` for severity-ranked go/no-go output and patch sequencing.
 
-## Repo layout
+## Recommended workflow recipes
 
-- `plugins/codex-ios-swiftui-kit/` - the plugin bundle
-- `scripts/install_codex_ios_swiftui_kit.py` - local installer
-- `docs/superpowers/plans/2026-05-15-codex-ios-swiftui-kit.md` - implementation plan
+### 1) Greenfield premium iPhone screen
+
+```text
+Use swiftui-design-direction -> ios-swiftui -> ios-accessibility -> ios-performance -> swiftui-expert-review
+```
+
+### 2) Existing SwiftUI screen feels generic
+
+```text
+Use swiftui-expert-review -> swiftui-design-direction (if visual quality is low) -> ios-swiftui -> ios-accessibility -> swiftui-expert-review
+```
+
+### 3) Existing SwiftUI code needs full review
+
+```text
+Use swiftui-expert-review -> ios-accessibility -> ios-performance -> swiftui-expert-review
+```
+
+### 4) Multi-screen feature architecture
+
+```text
+Use ios-architecture -> ios-swiftui -> ios-accessibility -> ios-performance -> swiftui-expert-review
+```
+
+### 5) Figma to SwiftUI
+
+```text
+Use swiftui-design-direction (with figma bridge) -> ios-swiftui -> ios-accessibility -> ios-performance -> swiftui-expert-review
+```
+
+Use Figma only if you explicitly provide a frame selection, URL, or explicit Figma task.
+
+## Example prompts
+
+- Design direction:
+  - `Use the Codex iOS SwiftUI Kit to create a premium iPhone-first design direction for ...`
+- Implementation:
+  - `Use the Codex iOS SwiftUI Kit to implement this approved direction in SwiftUI and keep the file layout clean.`
+- Architecture:
+  - `Use the Codex iOS SwiftUI Kit to define the feature ownership map and boundaries for this flow.`
+- Accessibility:
+  - `Use the Codex iOS SwiftUI Kit to audit this SwiftUI screen for VoiceOver, Dynamic Type, and reduced-motion safety.`
+- Performance:
+  - `Use the Codex iOS SwiftUI Kit to produce evidence-based SwiftUI performance findings with a measurement plan.`
+- Expert review:
+  - `Use the Codex iOS SwiftUI Kit to review these changed SwiftUI files and return severity-ranked fixes.`
+
+## Notes for humans and Codex
+
+- Runtime workflow should read `plugins/codex-ios-swiftui-kit/references/codex-workflow.md` first when you want staged execution.
+- Figma is optional and explicit.
+- Do not depend on install script behavior during day-to-day runtime usage.
+- Plugin layout in this repository:
+  - `plugins/codex-ios-swiftui-kit/.codex-plugin/plugin.json`
+  - `plugins/codex-ios-swiftui-kit/skills/*`
+  - `plugins/codex-ios-swiftui-kit/references/*`
+  - `scripts/install_codex_ios_swiftui_kit.py` (install-time only)

@@ -1,22 +1,30 @@
 # Brand Assets
 
-Use brand assets only when they improve recognition or orientation.
+Use assets when they improve meaning, not when they decorate.
 
-## Good uses
+## Asset roles
 
-- app identity in a header or launch area
-- a small logo mark in an about or account context
-- a product illustration that explains a feature
+- Decorative:
+  - soft pattern, texture, subtle icon background
+  - safe to drop if extraction fails
+- Informative:
+  - status illustrations, diagrams, process graphics
+  - should clarify user behavior
+- Identity-bearing:
+  - logo, mark, branded iconography in limited places
+  - strengthens trust and orientation
 
-## Bad uses
+## Use / avoid
 
-- placing the logo on every screen
-- using assets to replace layout clarity
-- forcing decorative imagery into utility flows
+- Use:
+  - identity only in title, account, or trusted context zones
+  - one informative asset for onboarding or flow explanation
+- Avoid:
+  - asset on every screen
+  - decorative substitutes for clear controls
+  - unreadable logos in low-space controls
 
-## Rules
+## Fallback rule
 
-- Keep asset usage intentional and sparse.
-- Describe whether the asset is decorative, informative, or identity-bearing.
-- If an asset is missing, the layout should still work.
-- Never let an asset dominate the primary task.
+- Any design decision that depends on an asset must have a text/shape fallback.
+- If the asset is unavailable, maintain semantic spacing, hierarchy, and accessibility labels.

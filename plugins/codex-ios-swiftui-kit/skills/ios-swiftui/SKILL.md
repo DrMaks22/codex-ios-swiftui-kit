@@ -1,48 +1,83 @@
 ---
 name: ios-swiftui
-description: Use when turning an iPhone UI concept into SwiftUI layout, state, navigation, presentation, or animation code.
+description: Use for iPhone SwiftUI implementation from approved design or architecture, including layout, state wiring, navigation, presentation, animation, and previews.
 ---
 
-# iOS SwiftUI
+# iPhone SwiftUI Implementation
 
-## Overview
-
-This skill turns a design direction into a correct SwiftUI structure. It is for layout, data flow, navigation, sheets, alerts, and animation choices.
+Use this skill when implementation is the target and visual direction is already defined.
 
 ## Use this skill when
 
-- you already know the screen shape and need SwiftUI code
-- a view tree feels too deep, too tangled, or too stateful
-- navigation, sheet, or alert behavior needs to be planned
-- you need a clean first pass before accessibility and performance review
+- you need SwiftUI layout, composition, navigation, or animation implementation
+- view code is too tangled or state handling is unclear
+- preview/sample-data and API availability are part of the task
+- you need a file-level concrete patch plan
+
+## Do not use this skill when
+
+- visual tone is still undecided
+- feature-level ownership is unresolved across services or shared state
+- only final review or performance-only audit is needed
+
+## Codex behavior
+
+- Inspect existing file context before proposing changes.
+- Preserve established project patterns and naming unless there is a clear reason to change.
+- Keep recommendations minimal, local, and compilable.
+- Do not invent components unless they are explicitly proposed and linked to implementation files.
+- Reference `../../../references/swiftui-state-ownership.md` before state placement decisions.
 
 ## Workflow
 
-1. Identify the smallest view structure that can support the screen.
-2. Decide which state belongs locally and which state should be passed in.
-3. Build the hierarchy from container to leaf views.
-4. Add presentation and navigation explicitly, not implicitly.
-5. Check the resulting body for clarity, reuse, and unnecessary branching.
+1. Inspect relevant files for current structure and patterns.
+2. Build the smallest working view tree from container to leaf.
+3. Decide state ownership and API availability boundaries.
+4. Define explicit navigation/presentation states.
+5. Add previewable changes and avoid network-dependent preview logic.
+6. Return a patch-oriented implementation contract.
 
 ## What to output
 
-Return:
-
-- the proposed SwiftUI view tree
-- state ownership decisions
-- navigation and presentation plan
-- adaptive layout notes
-- a concise code sketch if useful
+## Existing Context
+- Files inspected:
+- Existing patterns to preserve:
+- Deployment target / API constraints, if known:
+## View Tree
+- Container:
+- Sections:
+- Leaf components:
+- Extracted subviews and why:
+## State Ownership
+| State | Owner | Binding? | Lifetime | Reason |
+|---|---|---|---|---|
+## Navigation and Presentation
+- Navigation model:
+- Routes:
+- Sheets/covers/popovers/alerts:
+- Dismissal behavior:
+## Adaptive Layout
+- Compact width:
+- Dynamic Type:
+- Long text/localization:
+- Safe areas:
+## Implementation Plan
+- Files to edit:
+- New files/types:
+- Preview/sample data impact:
+## Code / Patch
+- Concrete code sketch or patch steps
 
 ## Rules
 
-- Prefer small, focused view types.
-- Keep state as close to its owner as possible.
-- Use SwiftUI primitives before reaching for UIKit bridges.
-- Keep `body` readable; move repeated logic into helpers or subviews.
-- Treat presentation state as explicit data, not hidden side effects.
-- Use the simplest navigation model that fits the product.
-- Keep the layout resilient to compact width, dynamic type, and long text.
+- Prefer small, focused views and predictable composition.
+- Keep state close to its owner and avoid copying mutable truth.
+- Use SwiftUI primitives before UIKit bridging.
+- Keep `body` readable, avoid heavy logic in deeply rendered closures.
+- Make navigation and presentation explicit and inspectable.
+- Respect compact width, Dynamic Type, and long text from the start.
+- Verify API availability when using newer SwiftUI APIs.
+- Keep one interaction model for navigation per feature.
 
 ## References
 
@@ -50,3 +85,4 @@ Return:
 - [`state.md`](references/state.md)
 - [`navigation.md`](references/navigation.md)
 - [`animation.md`](references/animation.md)
+- [`previewability.md`](references/previewability.md)

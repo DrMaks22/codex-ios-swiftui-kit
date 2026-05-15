@@ -1,7 +1,7 @@
 {
   "name": "codex-ios-swiftui-kit",
   "version": "0.1.0",
-  "description": "Codex-native iOS SwiftUI UX/UI bundle for distinctive design, implementation, accessibility, performance, and review",
+  "description": "Codex-native iPhone-first SwiftUI workflow kit for premium design direction, implementation, accessibility, performance, architecture, and quality review.",
   "author": {
     "name": "DrMaks22",
     "url": "https://github.com/DrMaks22"
@@ -9,20 +9,20 @@
   "homepage": "https://github.com/DrMaks22/codex-ios-swiftui-kit",
   "repository": "https://github.com/DrMaks22/codex-ios-swiftui-kit",
   "license": "MIT",
-  "keywords": ["swiftui", "ios", "ux", "ui", "accessibility", "performance", "codex"],
+  "keywords": ["swiftui", "ios", "ux", "ui", "accessibility", "performance", "architecture", "workflow", "review", "codex"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Codex iOS SwiftUI Kit",
-    "shortDescription": "Design, build, and review premium iOS SwiftUI UI",
-    "longDescription": "A Codex plugin bundle for iPhone-first SwiftUI design direction, implementation guidance, accessibility, performance, architecture, and expert review.",
+    "shortDescription": "Design, implement, and review premium iPhone SwiftUI UI",
+    "longDescription": "A Codex plugin bundle for iPhone-first SwiftUI visual direction, implementation, architecture, accessibility, performance, and final quality review.",
     "developerName": "DrMaks22",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],
     "defaultPrompt": [
-      "Design a premium iPhone SwiftUI screen with clear hierarchy and accessible spacing.",
-      "Implement this design in SwiftUI with modern navigation and adaptive layout.",
-      "Review my SwiftUI view for state, accessibility, and performance issues."
+      "Use the Codex iOS SwiftUI Kit to turn this product brief into an iPhone-first SwiftUI design direction with semantic tokens, compact-width hierarchy, accessibility constraints, and an implementation handoff.",
+      "Use the Codex iOS SwiftUI Kit to implement the approved iPhone UI direction in SwiftUI. Inspect the existing project structure first, propose the smallest view tree, map state ownership, define navigation and presentation explicitly, preserve previews, and make concrete file-level changes.",
+      "Use the Codex iOS SwiftUI Kit to review the changed SwiftUI files. Rank findings by severity, point to exact code regions or patterns, verify state, navigation, accessibility, performance, and API availability, then provide concrete fixes."
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",

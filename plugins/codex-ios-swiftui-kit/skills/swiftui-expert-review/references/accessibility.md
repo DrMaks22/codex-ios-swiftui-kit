@@ -1,11 +1,17 @@
-# Accessibility Review
-
-Look for accessibility gaps that are easy to miss in a visual review.
-
-## Red flags
+# Accessibility Review (Review only)
 
 - unlabeled controls
-- reading order that does not match the visual order
+- reading order mismatch
 - color-only state
-- layouts that break at large text sizes
-- motion or blur that hurts legibility
+- layout breaks at larger text
+- motion or blur reducing comprehension
+
+## Severity mapping
+
+- High: inaccessible primary action or major AT blocker
+- Medium: important secondary task friction
+- Low: polish improvements
+
+## Reference
+
+- detailed matrix: `../../../ios-accessibility/references/accessibility-test-matrix.md`

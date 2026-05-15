@@ -1,45 +1,57 @@
 ---
 name: swiftui-expert-review
-description: Use when reviewing or refining SwiftUI code for state ownership, modern APIs, accessibility, performance, and navigation correctness.
+description: Use for final SwiftUI quality review, severity-ranked defects, and concrete fixes across state, architecture, accessibility, performance, navigation, and availability.
 ---
 
-# SwiftUI Expert Review
+# iOS SwiftUI Quality Review
 
-## Overview
-
-This skill is the final review gate for SwiftUI work. It checks correctness, polish, and implementation quality after design and build steps are done.
+Use this as the final review gate after implementation and targeted audits.
 
 ## Use this skill when
 
-- a SwiftUI screen is already implemented and needs review
-- you want a second pass on state, navigation, or view structure
-- accessibility or performance issues may be hidden in the code
-- availability-gated APIs or modern SwiftUI patterns need verification
+- a SwiftUI feature is implemented and needs final release-quality review
+- you need severity-ranked findings and clear patch order
+- architecture, accessibility, and performance handoffs are already present
 
-## Workflow
+## Do not use this skill when
 
-1. Review the highest-risk issue first.
-2. Check state ownership and view composition.
-3. Check navigation, presentation, and API availability.
-4. Check accessibility and performance.
-5. Return findings in severity order, then provide corrected guidance or code.
+- design direction has not been agreed and implementation is still exploratory
+- the request is only for a single-file micro-optimization without context
 
-## What to output
+## Codex behavior
 
-Return:
+- do not invent findings; only report what code/path evidence supports
+- prioritize findings by severity and user impact
+- use severity mapping from `../../references/review-severity.md`
+- include concrete region/pattern-level fixes and residual risk
 
-- review findings ordered by severity
-- the exact code region or pattern causing each issue
-- concrete fixes or refactor suggestions
-- a short residual-risk note if needed
+## Required output
+
+## Review Verdict
+Status: Pass / Pass with fixes / Needs revision
+## Findings
+### 1. [Severity] Title
+- Region / pattern:
+- Why it matters:
+- Concrete fix:
+- Residual risk:
+## What Is Already Strong
+- ...
+## Patch Order
+1. ...
+2. ...
+3. ...
+## Final Handoff
+- Must fix before shipping:
+- Optional polish:
+- Follow-up checks:
 
 ## Rules
 
-- Prefer facts from the code over general advice.
-- If the code is fine, say so and note any remaining risk.
-- Treat state duplication, unstable identity, and hidden side effects as real review issues.
-- Verify accessibility and performance instead of assuming them.
-- Keep iOS 26+ or other newer APIs gated unless the target explicitly supports them.
+- Keep iOS 26+ API usage behind availability checks.
+- Keep severity visible in order.
+- Mention what is already strong before broad recommendations.
+- Only report issues with evidence and fix path.
 
 ## References
 
@@ -47,3 +59,5 @@ Return:
 - [`state-ownership.md`](references/state-ownership.md)
 - [`performance.md`](references/performance.md)
 - [`accessibility.md`](references/accessibility.md)
+- [`availability.md`](references/availability.md)
+- [`../../references/review-severity.md`](../../references/review-severity.md)

@@ -1,10 +1,16 @@
-# Performance Review
+# Performance Review (Review only)
 
-Look for patterns that make SwiftUI redraw too much or do too much work.
+- body work still heavy in frequently rendered views
+- unstable IDs or unstable `ForEach` identity
+- broad state invalidation
+- image decoding or formatting in visible hot paths
 
-## Red flags
+## Severity mapping
 
-- heavy work in `body`
-- unstable identity in lists or repeated content
-- unnecessary redraws from broad state changes
-- expensive image, formatting, or parsing work on the hot path
+- High: clear evidence of jank/hitch in primary flow
+- Medium: avoidable heavy work with simple refactor
+- Low: micro-optimization after functional risks are closed
+
+## Reference
+
+- detailed optimization patterns: `../../../ios-performance/references/swiftui-performance.md`

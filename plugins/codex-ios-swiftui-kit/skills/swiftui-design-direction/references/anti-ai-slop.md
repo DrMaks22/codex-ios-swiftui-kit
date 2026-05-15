@@ -1,6 +1,23 @@
 # Anti AI Slop
 
-Use this checklist when a SwiftUI screen feels generic or overworked.
+Use this score before returning final design direction.
+
+## Anti-slop score
+
+- `0` = generic and noisy
+- `1` = acceptable but visually bland
+- `2` = distinctive and restrained
+
+## Before / after checks
+
+- Before:
+  - all cards have identical radius and shadows
+  - random gradients across multiple sections
+  - primary action has no clear visual weight
+- After:
+  - one dominant visual system
+  - controlled decoration with purpose
+  - clear hierarchy from one primary action
 
 ## Avoid
 
@@ -16,13 +33,13 @@ Use this checklist when a SwiftUI screen feels generic or overworked.
 
 - one strong visual idea
 - clear spacing rhythm
-- a single accent color with semantic use
+- one semantic accent with strict usage
 - simple surfaces with one or two deliberate details
-- motion that reveals structure instead of distracting from it
+- motion that explains state changes
 
-## Final slop check
+## Quick anti-slop gate
 
 - Could this screen be described in one sentence?
-- Does the primary action stand out immediately?
-- Would the layout still work if the decoration were removed?
-- Is there at least one strong choice that feels intentional?
+- Is the primary action clear within 2 seconds?
+- Would layout still communicate without decoration?
+- Is there at least one intentional detail beyond generic patterns?

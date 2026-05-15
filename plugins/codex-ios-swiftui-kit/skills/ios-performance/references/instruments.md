@@ -1,6 +1,6 @@
 # Instruments
 
-Use Instruments when the problem is not obvious from code review alone.
+Use Instruments when runtime symptoms are not obvious from source inspection.
 
 ## Good moments to measure
 
@@ -9,15 +9,18 @@ Use Instruments when the problem is not obvious from code review alone.
 - memory climbs while navigating
 - animations hitch when state changes
 
-## What to look for
+## Measurement table
 
-- repeated work in frequently rendered views
-- large diff churn from identity problems
-- expensive allocations or image decoding
-- too many updates caused by one state change
+| Symptom | Tool | Scenario | Expected signal | Likely code fix |
+|---|---|---|---|---|
+| Scroll hitch | Core Animation, Time Profiler | open list + fast scroll | spikes in body rendering and layout | cache data, stable ids, split heavy rows |
+| Startup lag | Instruments launch + Time Profiler | cold start of target screen | excessive startup work in `init`/onAppear | defer non-critical initialization |
+| Memory growth | Allocations + Leaks | repeated entry/exit | growing allocation footprint | optimize image decode and avoid repeated object churn |
+| Transition stutter | Time Profiler + Core Animation | button trigger + animated route | delayed transitions and dropped frames | reduce animation scope and state fan-out |
 
 ## Reporting rule
 
-- mention what to measure
-- mention what you expect to see
-- mention what code change is likely to help
+- For each finding, include:
+  - what to measure
+  - what signal indicates risk
+  - likely code change

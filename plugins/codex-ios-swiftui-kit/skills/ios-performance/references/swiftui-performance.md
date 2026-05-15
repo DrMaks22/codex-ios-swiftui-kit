@@ -2,13 +2,42 @@
 
 Use this checklist when a screen feels heavy or scrolls poorly.
 
-## Common issues
+## Evidence-based anti-patterns
 
-- unstable view identity
-- too much work in `body`
-- large lists that rebuild more than necessary
-- expensive image or format work on the hot path
-- state changes that invalidate more of the tree than needed
+- unstable identity in list loops
+- repeated expensive formatting inside `body`
+- eager image decoding or resampling in scroll cells
+- broad state updates that invalidate unrelated views
+- expensive modifiers applied to large subtrees
+
+## SwiftUI examples
+
+```swift
+ForEach(messages, id: \.id) { message in
+  MessageRow(message: message) // stable id
+}
+```
+
+```swift
+// Weak example: unstable identity
+ForEach(messages, id: \.self) { message in
+  MessageRow(message: message)
+}
+```
+
+```swift
+Text(Date(), format: .dateTime) // avoid in hot body
+```
+
+```swift
+// Move formatting to model or cache
+let formattedDate = message.formatDate()
+Text(formattedDate)
+```
+
+## Decision rule
+
+- Do not optimize without evidence unless bug is obvious (e.g., compile error or guaranteed state corruption).
 
 ## Good fixes
 

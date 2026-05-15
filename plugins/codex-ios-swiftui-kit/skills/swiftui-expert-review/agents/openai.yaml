@@ -1,7 +1,7 @@
 interface:
-  display_name: "SwiftUI Expert Review"
-  short_description: "Review and refine SwiftUI code"
-  default_prompt: "Use $swiftui-expert-review to review SwiftUI code for correctness and polish."
+  display_name: "iOS SwiftUI Quality Review"
+  short_description: "Run final severity-ranked SwiftUI code review"
+  default_prompt: "Use the Codex iOS SwiftUI Kit to review changed SwiftUI files for severity-ranked quality and release readiness."
   brand_color: "#111827"
 
 policy:

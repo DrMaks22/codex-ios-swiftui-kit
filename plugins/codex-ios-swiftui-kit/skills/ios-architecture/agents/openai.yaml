@@ -1,7 +1,7 @@
 interface:
-  display_name: "iOS Architecture"
-  short_description: "State ownership and module boundaries"
-  default_prompt: "Use $ios-architecture to structure a SwiftUI feature cleanly."
+  display_name: "iOS SwiftUI Feature Architecture"
+  short_description: "Own architecture boundaries, state ownership, and DI"
+  default_prompt: "Use the Codex iOS SwiftUI Kit to define feature ownership, boundaries, and dependencies."
   brand_color: "#7C3AED"
 
 policy:

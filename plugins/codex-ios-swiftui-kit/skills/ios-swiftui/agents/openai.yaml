@@ -1,7 +1,7 @@
 interface:
-  display_name: "iOS SwiftUI"
-  short_description: "SwiftUI layout and composition"
-  default_prompt: "Use $ios-swiftui to implement a polished iPhone UI in SwiftUI."
+  display_name: "iPhone SwiftUI Implementation"
+  short_description: "Implement iPhone SwiftUI layout, navigation, and presentation"
+  default_prompt: "Use the Codex iOS SwiftUI Kit to implement the approved iPhone UI direction in SwiftUI."
   brand_color: "#2563EB"
 
 policy:
