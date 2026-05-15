@@ -29,7 +29,8 @@ Use this when scoring review findings in `swiftui-expert-review`.
 | Broken primary user flow | Critical | Core task cannot complete |
 | Inaccessible primary action | High | Users cannot complete main action with VoiceOver |
 | Broken presentation lifecycle | High | Screens/flows get stuck or dismiss incorrectly |
-| Duplicated source of truth | Medium | Desync risk, inconsistent behavior |
+| Duplicated source of truth without visible drift | Medium | Desync risk and maintainability cost |
+| Duplicated source of truth with user-visible drift | High | Incorrect UI state or navigation/data mismatch |
 | Dynamic Type failure in primary list or labels | High | Loss of content and likely interaction errors |
 | Performance issue with clear evidence | High if visible | e.g. clear list hitches, main-thread churn |
 | Visual polish issue only | Low | Improvement quality, not functional breakage |

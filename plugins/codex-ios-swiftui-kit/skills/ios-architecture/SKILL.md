@@ -23,7 +23,7 @@ Use this skill for feature-level architecture decisions, not as a generic archit
 
 - Explicitly mark pass type: pre-implementation or refactor/audit.
 - Recommend architecture only at feature granularity unless there is evidence for extraction.
-- Reference `../../../references/swiftui-state-ownership.md` as source of truth for state placement.
+- Reference `../../references/swiftui-state-ownership.md` as source of truth for state placement.
 
 ## Workflow
 
@@ -71,3 +71,5 @@ Use this skill for feature-level architecture decisions, not as a generic archit
 - [`module-boundaries.md`](references/module-boundaries.md)
 - [`dependency-injection.md`](references/dependency-injection.md)
 - [`feature-boundaries.md`](references/feature-boundaries.md)
+- [`swiftui-state-ownership.md`](../../references/swiftui-state-ownership.md)
+- [`handoff-contract.md`](../../references/handoff-contract.md)

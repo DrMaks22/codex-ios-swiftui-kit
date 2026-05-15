@@ -1,13 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-label="Codex iOS SwiftUI Kit logo">
-  <rect width="960" height="320" rx="44" fill="#0B1220"/>
-  <g transform="translate(56 40)">
-    <rect width="240" height="240" rx="42" fill="#0F766E"/>
-    <rect x="58" y="66" width="124" height="108" rx="22" fill="none" stroke="#FFFFFF" stroke-width="12"/>
-    <line x1="82" y1="102" x2="158" y2="102" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-    <line x1="82" y1="128" x2="152" y2="128" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-    <line x1="82" y1="154" x2="142" y2="154" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-    <line x1="82" y1="180" x2="158" y2="180" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" role="img" aria-label="Codex iOS SwiftUI Kit logo">
+  <defs>
+    <linearGradient id="logoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.52" stop-color="#07111F"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="logoGlow" cx="31%" cy="48%" r="62%">
+      <stop offset="0" stop-color="#2DD4BF" stop-opacity="0.36"/>
+      <stop offset="0.50" stop-color="#0F766E" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5EEAD4"/>
+      <stop offset="0.5" stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="phoneStrokeL" x1="132" y1="72" x2="300" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A7FFF3"/>
+      <stop offset="0.55" stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="layerTopL" x1="140" y1="130" x2="342" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E0FFFA" stop-opacity="0.96"/>
+      <stop offset="0.45" stop-color="#5EEAD4" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0.40"/>
+    </linearGradient>
+    <linearGradient id="layerMidL" x1="112" y1="180" x2="322" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34D399" stop-opacity="0.94"/>
+      <stop offset="0.52" stop-color="#14B8A6" stop-opacity="0.74"/>
+      <stop offset="1" stop-color="#1E3A8A" stop-opacity="0.34"/>
+    </linearGradient>
+    <linearGradient id="layerLowL" x1="108" y1="222" x2="315" y2="298" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#155E75" stop-opacity="0.62"/>
+      <stop offset="0.55" stop-color="#0F766E" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#64748B" stop-opacity="0.24"/>
+    </linearGradient>
+    <linearGradient id="swooshL" x1="238" y1="250" x2="382" y2="358" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.72" stop-color="#E2E8F0"/>
+      <stop offset="1" stop-color="#94A3B8"/>
+    </linearGradient>
+    <filter id="logoShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="logoTealShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#2DD4BF" flood-opacity="0.32"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="480" rx="64" fill="url(#logoBg)"/>
+  <rect x="1.5" y="1.5" width="1277" height="477" rx="62" fill="none" stroke="#243044" stroke-width="3" opacity="0.9"/>
+  <circle cx="340" cy="244" r="330" fill="url(#logoGlow)"/>
+
+  <g transform="translate(56 42)">
+    <rect width="396" height="396" rx="78" fill="#06111E" opacity="0.76"/>
+    <rect x="1.5" y="1.5" width="393" height="393" rx="76" fill="none" stroke="#1F2A3C" stroke-width="3"/>
+
+    <!-- design-system rails -->
+    <g opacity="0.72" stroke-linecap="round">
+      <path d="M70 110V286" stroke="#E2E8F0" stroke-width="2.3" opacity="0.52"/>
+      <path d="M70 129H126M70 176H126M70 223H126M70 270H126" stroke="#64748B" stroke-width="2" opacity="0.55"/>
+      <g fill="#CBD5E1">
+        <circle cx="70" cy="110" r="4.5"/><circle cx="70" cy="129" r="3.4"/><circle cx="70" cy="176" r="3.4"/><circle cx="70" cy="223" r="3.4"/><circle cx="70" cy="270" r="3.4"/><circle cx="70" cy="286" r="4.5"/>
+      </g>
+      <path d="M86 129H110M86 176H122M86 223H112M86 270H124" stroke="#A7F3D0" stroke-width="2.1" opacity="0.48"/>
+    </g>
+
+    <!-- iPhone -->
+    <g filter="url(#logoShadow)">
+      <rect x="136" y="70" width="158" height="288" rx="38" fill="#05101D" fill-opacity="0.52"/>
+      <rect x="136" y="70" width="158" height="288" rx="38" fill="none" stroke="url(#phoneStrokeL)" stroke-width="8"/>
+      <path d="M186 89H244" stroke="#9FFFF1" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+      <path d="M191 337H236" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" opacity="0.86"/>
+    </g>
+
+    <!-- layers -->
+    <g filter="url(#logoTealShadow)" stroke-linejoin="round">
+      <path d="M151 165L267 113C273 110 278 110 283 113L342 141C351 145 351 155 342 160L224 215C217 218 213 218 206 215L151 189C141 184 141 169 151 165Z" fill="url(#layerTopL)" stroke="#D7FFFA" stroke-width="3.8"/>
+      <path d="M130 204L250 149C256 146 261 146 267 149L326 177C336 181 336 193 326 198L204 255C197 258 192 258 185 255L130 229C120 224 120 209 130 204Z" fill="url(#layerMidL)" stroke="#5EEAD4" stroke-width="3" opacity="0.96"/>
+      <path d="M124 245L239 193C246 190 251 190 258 193L314 218C323 222 323 234 314 238L195 294C189 297 184 297 178 294L124 270C114 265 114 250 124 245Z" fill="url(#layerLowL)" stroke="#334155" stroke-width="3" opacity="0.90"/>
+    </g>
+
+    <!-- original flow mark -->
+    <g filter="url(#logoShadow)">
+      <path d="M250 261C279 280 312 273 347 241C340 279 317 306 285 314C306 329 333 334 363 330C326 362 274 358 239 323C262 327 280 324 295 313C260 306 231 282 212 248C231 263 249 272 267 276C256 268 247 259 240 247C264 264 283 274 299 276C284 262 273 248 265 233C288 256 309 267 329 266C303 285 276 285 250 261Z" fill="url(#swooshL)" opacity="0.96"/>
+    </g>
+
+    <g transform="translate(318 319)" filter="url(#logoShadow)">
+      <circle cx="0" cy="0" r="25" fill="#07111F" stroke="#2DD4BF" stroke-width="4"/>
+      <path d="M-10 0L-2 8L13 -11" fill="none" stroke="#8CFFF1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
   </g>
-  <text x="344" y="130" fill="#F8FAFC" font-size="48" font-weight="700" font-family="system-ui, -apple-system, sans-serif">Codex iOS SwiftUI Kit</text>
-  <text x="344" y="190" fill="#94A3B8" font-size="22" font-weight="500" font-family="system-ui, -apple-system, sans-serif">Premium iPhone SwiftUI workflow for design, build, and review</text>
+
+  <!-- Product wordmark -->
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif">
+    <text x="520" y="132" fill="#F8FAFC" font-size="58" font-weight="650" letter-spacing="-1.6">Codex</text>
+    <text x="520" y="222" fill="#F8FAFC" font-size="72" font-weight="760" letter-spacing="-2.4">iOS </text>
+    <text x="642" y="222" fill="url(#titleAccent)" font-size="72" font-weight="760" letter-spacing="-2.4">SwiftUI Kit</text>
+    <text x="520" y="290" fill="#CBD5E1" font-size="31" font-weight="520" letter-spacing="0.2">Design. Implement. Audit. Refine.</text>
+    <text x="520" y="340" fill="#94A3B8" font-size="25" font-weight="480" letter-spacing="0.1">Premium iPhone experiences for native SwiftUI workflows.</text>
+  </g>
 </svg>

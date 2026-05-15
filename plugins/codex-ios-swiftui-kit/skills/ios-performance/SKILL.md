@@ -62,3 +62,4 @@ Use this skill when runtime behavior threatens smooth scrolling, responsiveness,
 - [`swiftui-performance.md`](references/swiftui-performance.md)
 - [`instruments.md`](references/instruments.md)
 - [`performance-finding-format.md`](references/performance-finding-format.md)
+- [`handoff-contract.md`](../../references/handoff-contract.md)

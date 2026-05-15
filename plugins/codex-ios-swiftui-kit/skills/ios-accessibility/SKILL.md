@@ -80,3 +80,4 @@ description: Use for VoiceOver, Dynamic Type, contrast, motion, and touch-target
 - [`dynamic-type.md`](references/dynamic-type.md)
 - [`contrast-motion.md`](references/contrast-motion.md)
 - [`accessibility-test-matrix.md`](references/accessibility-test-matrix.md)
+- [`handoff-contract.md`](../../references/handoff-contract.md)

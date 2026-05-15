@@ -61,3 +61,4 @@ Status: Pass / Pass with fixes / Needs revision
 - [`accessibility.md`](references/accessibility.md)
 - [`availability.md`](references/availability.md)
 - [`../../references/review-severity.md`](../../references/review-severity.md)
+- [`handoff-contract.md`](../../references/handoff-contract.md)

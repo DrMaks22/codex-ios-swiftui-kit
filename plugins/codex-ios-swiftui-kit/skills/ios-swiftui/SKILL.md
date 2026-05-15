@@ -26,7 +26,7 @@ Use this skill when implementation is the target and visual direction is already
 - Preserve established project patterns and naming unless there is a clear reason to change.
 - Keep recommendations minimal, local, and compilable.
 - Do not invent components unless they are explicitly proposed and linked to implementation files.
-- Reference `../../../references/swiftui-state-ownership.md` before state placement decisions.
+- Reference `../../references/swiftui-state-ownership.md` before state placement decisions.
 
 ## Workflow
 
@@ -86,3 +86,5 @@ Use this skill when implementation is the target and visual direction is already
 - [`navigation.md`](references/navigation.md)
 - [`animation.md`](references/animation.md)
 - [`previewability.md`](references/previewability.md)
+- [`swiftui-state-ownership.md`](../../references/swiftui-state-ownership.md)
+- [`handoff-contract.md`](../../references/handoff-contract.md)

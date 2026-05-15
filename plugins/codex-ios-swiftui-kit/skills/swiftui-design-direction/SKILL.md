@@ -26,6 +26,7 @@ Use this skill when a request includes: design concept, visual identity, screen 
 - Keep compact-width iPhone as default.
 - Return concise, copy-pastable artifacts that can be directly passed to `ios-swiftui`.
 - If evidence suggests performance risk, call it out with a clear mitigation hint.
+- Do not use Figma unless the user provides a Figma file, frame, selection, or explicitly asks for Figma.
 
 ## Workflow
 
@@ -94,6 +95,8 @@ Use this exact structure:
 - [`anti-ai-slop.md`](references/anti-ai-slop.md)
 - [`layout-patterns.md`](references/layout-patterns.md)
 - [`design-lanes.md`](references/design-lanes.md)
+- [`handoff-contract.md`](../../references/handoff-contract.md)
 - [`swiftui-state-ownership.md`](../../references/swiftui-state-ownership.md)
+- [`figma-bridge.md`](../../references/figma-bridge.md)
 - [`typography-color.md`](references/typography-color.md)
 - [`brand-assets.md`](references/brand-assets.md)
